@@ -1,28 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
-
 :root {
-	--bg-main: hsl(220, 25%, 8%);
-	--bg-card: hsla(220, 25%, 12%, 0.7);
-	--text-main: hsl(220, 20%, 95%);
-	--text-muted: hsl(220, 10%, 70%);
-	--accent: hsl(250, 95%, 75%);
-	--accent-hover: hsl(250, 95%, 85%);
-	--accent-light: hsla(250, 95%, 75%, 0.1);
-	--border: hsla(220, 25%, 20%, 0.5);
-	--shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-	--glass: blur(12px) saturate(180%);
-}
+	/* New Theme Colors mapped to original variable names */
+	--bg-main: #0f0f0f;
+	--bg-card: rgba(26, 26, 26, 0.8);
+	--text-main: #e5e5e5;
+	--text-muted: #a0a0a0;
+	--accent: #dcdcdc;
+	--accent-hover: #ffffff;
+	--accent-light: rgba(220, 220, 220, 0.1);
+	--border: rgba(255, 255, 255, 0.1);
 
-[data-theme='light'] {
-	--bg-main: hsl(220, 20%, 97%);
-	--bg-card: hsla(0, 0%, 100%, 0.7);
-	--text-main: hsl(220, 25%, 15%);
-	--text-muted: hsl(220, 15%, 45%);
-	--accent: hsl(250, 85%, 60%);
-	--accent-hover: hsl(250, 85%, 50%);
-	--accent-light: hsla(250, 85%, 60%, 0.1);
-	--border: hsla(220, 20%, 80%, 0.5);
+	/* Typography */
+	--font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--font-size-base: 18px;
+	--line-height: 1.6;
+	--max-width: 700px;
+
+	/* Fallbacks for restored structural elements */
+	--glass: blur(12px) saturate(180%);
+	--shadow: none;
+	/* Keep it minimal as requested */
+	--shadow-lg: none;
 }
 
 * {
@@ -31,13 +28,24 @@
 	padding: 0;
 }
 
+html {
+	font-size: var(--font-size-base);
+	background-color: var(--bg-main);
+}
+
 body {
-	font-family: 'Inter', system-ui, sans-serif;
 	background-color: var(--bg-main);
 	color: var(--text-main);
-	line-height: 1.6;
+	font-family: var(--font-main);
+	line-height: var(--line-height);
 	-webkit-font-smoothing: antialiased;
-	transition: background-color 0.3s ease, color 0.3s ease;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+main {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 4rem 1.5rem;
 }
 
 h1,
@@ -46,88 +54,86 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Outfit', sans-serif;
-	font-weight: 700;
+	font-weight: 600;
 	line-height: 1.2;
 	margin-bottom: 1rem;
-	letter-spacing: -0.02em;
+	color: var(--text-main);
+}
+
+/* Maintain lowercase preference for the "Technical/UNIX" vibe */
+h1,
+h2,
+h3,
+.sr-only+svg {
+	text-transform: lowercase;
 }
 
 h1 {
-	font-size: 3rem;
+	font-size: 2.5rem;
 }
 
 h2 {
-	font-size: 2.25rem;
+	font-size: 1.5rem;
 }
 
 h3 {
-	font-size: 1.875rem;
+	font-size: 1.25rem;
+}
+
+p {
+	margin-bottom: 1.5rem;
 }
 
 a {
 	color: var(--accent);
 	text-decoration: none;
-	transition: color 0.2s ease;
+	transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 a:hover {
+	text-decoration: underline;
+	opacity: 0.8;
 	color: var(--accent-hover);
 }
 
-main {
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 4rem 1.5rem;
-}
-
-.glass-card {
-	background-color: var(--bg-card);
-	backdrop-filter: var(--glass);
-	-webkit-backdrop-filter: var(--glass);
-	border: 1px solid var(--border);
-	border-radius: 1rem;
-	padding: 2rem;
-	box-shadow: var(--shadow);
-}
-
-.prose {
-	font-size: 1.125rem;
-}
-
-.prose p {
+ul,
+ol {
 	margin-bottom: 1.5rem;
+	padding-left: 1.5rem;
 }
 
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 0.75rem;
-	box-shadow: var(--shadow-lg);
+li {
+	margin-bottom: 0.5rem;
 }
 
 code {
-	font-family: 'JetBrains Mono', monospace;
-	background-color: var(--accent-light);
-	color: var(--accent);
-	padding: 0.2em 0.4em;
-	border-radius: 0.25rem;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 	font-size: 0.9em;
+	background: var(--bg-card);
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	color: var(--accent);
 }
 
 pre {
-	padding: 1.5rem;
-	border-radius: 1rem;
+	background: var(--bg-card);
+	padding: 1rem;
+	border-radius: 4px;
 	overflow-x: auto;
 	margin-bottom: 1.5rem;
-	box-shadow: var(--shadow);
+	border: 1px solid var(--border);
 }
 
 pre code {
-	background-color: transparent;
-	color: inherit;
+	background: none;
 	padding: 0;
-	font-size: 0.9rem;
+	color: inherit;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--border);
+	margin: 2rem 0;
 }
 
 .sr-only {
@@ -142,16 +148,12 @@ pre code {
 	border-width: 0;
 }
 
-@media (max-width: 640px) {
-	h1 {
-		font-size: 2.25rem;
-	}
-
-	h2 {
-		font-size: 1.875rem;
-	}
-
+@media (max-width: 720px) {
 	main {
 		padding: 2rem 1rem;
+	}
+
+	h1 {
+		font-size: 2rem;
 	}
 }
