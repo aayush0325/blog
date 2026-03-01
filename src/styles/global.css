@@ -16,9 +16,8 @@
 	--max-width: 700px;
 
 	/* Fallbacks for restored structural elements */
-	--glass: blur(12px) saturate(180%);
+	--glass: none;
 	--shadow: none;
-	/* Keep it minimal as requested */
 	--shadow-lg: none;
 }
 
@@ -58,18 +57,11 @@ h6 {
 	line-height: 1.2;
 	margin-bottom: 1rem;
 	color: var(--text-main);
-}
-
-/* Maintain lowercase preference for the "Technical/UNIX" vibe */
-h1,
-h2,
-h3,
-.sr-only+svg {
 	text-transform: lowercase;
 }
 
 h1 {
-	font-size: 2.5rem;
+	font-size: 2rem;
 }
 
 h2 {
@@ -87,13 +79,12 @@ p {
 a {
 	color: var(--accent);
 	text-decoration: none;
-	transition: opacity 0.2s ease, color 0.2s ease;
+	transition: color 0.2s ease;
 }
 
 a:hover {
-	text-decoration: underline;
-	opacity: 0.8;
 	color: var(--accent-hover);
+	text-decoration: underline;
 }
 
 ul,
@@ -109,14 +100,14 @@ li {
 code {
 	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 	font-size: 0.9em;
-	background: var(--bg-card);
+	background: #1a1a1a;
 	padding: 0.2em 0.4em;
 	border-radius: 3px;
 	color: var(--accent);
 }
 
 pre {
-	background: var(--bg-card);
+	background: #1a1a1a;
 	padding: 1rem;
 	border-radius: 4px;
 	overflow-x: auto;
@@ -154,6 +145,6 @@ hr {
 	}
 
 	h1 {
-		font-size: 2rem;
+		font-size: 1.75rem;
 	}
 }
