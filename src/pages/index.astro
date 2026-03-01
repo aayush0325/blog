@@ -1,0 +1,102 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="intro glass-card">
+				<h1>Hi, I'm <span class="text-gradient">Aayush</span></h1>
+				<p class="prose">
+					I'm Aayush Khanna, a passionate developer and sports
+					enthusiast. Here, I write about my ideas, experiences, and
+					explorations - from deep tech to life beyond code.
+				</p>
+				<div class="cta-buttons">
+					<a href="/blog" class="button primary">Read My Blog</a>
+					<a href="/about" class="button secondary">About Me</a>
+				</div>
+			</section>
+
+			<section class="featured">
+				<h2>Latest Musings</h2>
+				<p>My recent/interesting blogs.</p>
+			</section>
+
+			<style>
+				.intro {
+					text-align: center;
+					margin-bottom: 4rem;
+					padding: 4rem 2rem;
+				}
+				h1 {
+					font-size: 3.5rem;
+					margin-bottom: 1.5rem;
+					line-height: 1.1;
+				}
+				.text-gradient {
+					background: linear-gradient(
+						135deg,
+						var(--accent) 0%,
+						#ff4dff 100%
+					);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					background-clip: text;
+					color: transparent;
+				}
+				.cta-buttons {
+					display: flex;
+					gap: 1rem;
+					justify-content: center;
+					margin-top: 2rem;
+				}
+				.button {
+					padding: 0.75rem 2rem;
+					border-radius: 100px;
+					font-weight: 600;
+					transition: all 0.2s ease;
+					text-decoration: none;
+				}
+				.button.primary {
+					background-color: var(--accent);
+					color: white;
+				}
+				.button.primary:hover {
+					background-color: var(--accent-hover);
+					transform: translateY(-2px);
+					box-shadow: 0 10px 20px -5px var(--accent-light);
+				}
+				.button.secondary {
+					background-color: var(--accent-light);
+					color: var(--accent);
+					border: 1px solid var(--border);
+				}
+				.button.secondary:hover {
+					background-color: var(--border);
+					transform: translateY(-2px);
+				}
+				.featured {
+					text-align: center;
+				}
+				@media (max-width: 720px) {
+					h1 {
+						font-size: 2.5rem;
+					}
+					.cta-buttons {
+						flex-direction: column;
+					}
+				}
+			</style>
+		</main>
+		<Footer />
+	</body>
+</html>

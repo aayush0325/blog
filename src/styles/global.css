@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
+
+:root {
+	--bg-main: hsl(220, 25%, 8%);
+	--bg-card: hsla(220, 25%, 12%, 0.7);
+	--text-main: hsl(220, 20%, 95%);
+	--text-muted: hsl(220, 10%, 70%);
+	--accent: hsl(250, 95%, 75%);
+	--accent-hover: hsl(250, 95%, 85%);
+	--accent-light: hsla(250, 95%, 75%, 0.1);
+	--border: hsla(220, 25%, 20%, 0.5);
+	--shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+	--glass: blur(12px) saturate(180%);
+}
+
+[data-theme='light'] {
+	--bg-main: hsl(220, 20%, 97%);
+	--bg-card: hsla(0, 0%, 100%, 0.7);
+	--text-main: hsl(220, 25%, 15%);
+	--text-muted: hsl(220, 15%, 45%);
+	--accent: hsl(250, 85%, 60%);
+	--accent-hover: hsl(250, 85%, 50%);
+	--accent-light: hsla(250, 85%, 60%, 0.1);
+	--border: hsla(220, 20%, 80%, 0.5);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Inter', system-ui, sans-serif;
+	background-color: var(--bg-main);
+	color: var(--text-main);
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Outfit', sans-serif;
+	font-weight: 700;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+	letter-spacing: -0.02em;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 2.25rem;
+}
+
+h3 {
+	font-size: 1.875rem;
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+a:hover {
+	color: var(--accent-hover);
+}
+
+main {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 4rem 1.5rem;
+}
+
+.glass-card {
+	background-color: var(--bg-card);
+	backdrop-filter: var(--glass);
+	-webkit-backdrop-filter: var(--glass);
+	border: 1px solid var(--border);
+	border-radius: 1rem;
+	padding: 2rem;
+	box-shadow: var(--shadow);
+}
+
+.prose {
+	font-size: 1.125rem;
+}
+
+.prose p {
+	margin-bottom: 1.5rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 0.75rem;
+	box-shadow: var(--shadow-lg);
+}
+
+code {
+	font-family: 'JetBrains Mono', monospace;
+	background-color: var(--accent-light);
+	color: var(--accent);
+	padding: 0.2em 0.4em;
+	border-radius: 0.25rem;
+	font-size: 0.9em;
+}
+
+pre {
+	padding: 1.5rem;
+	border-radius: 1rem;
+	overflow-x: auto;
+	margin-bottom: 1.5rem;
+	box-shadow: var(--shadow);
+}
+
+pre code {
+	background-color: transparent;
+	color: inherit;
+	padding: 0;
+	font-size: 0.9rem;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+@media (max-width: 640px) {
+	h1 {
+		font-size: 2.25rem;
+	}
+
+	h2 {
+		font-size: 1.875rem;
+	}
+
+	main {
+		padding: 2rem 1rem;
+	}
+}
